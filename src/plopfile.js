@@ -13,12 +13,12 @@ module.exports = function plopMain(plop) {
     actions: [
       {
         type: 'add',
-        path: `${currentPath}/index.js`,
+        path: `${currentPath}/{{name}}/index.js`,
         templateFile: 'templates/index.hbs',
       },
       {
         type: 'add',
-        path: `${currentPath}/{{name}}.js`,
+        path: `${currentPath}/{{name}}/{{name}}.js`,
         templateFile: 'templates/component.hbs',
       },
     ],

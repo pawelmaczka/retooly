@@ -1,5 +1,5 @@
 module.exports = function plopMain(plop) {
-  plop.addHelper('cwd', () => process.cwd());
+  const currentPath = process.env.INIT_CWD;
 
   plop.setGenerator('controller', {
     description: 'application controller logic',
@@ -13,7 +13,7 @@ module.exports = function plopMain(plop) {
     actions: [
       {
         type: 'add',
-        path: '{{cwd}}/{{name}}.js',
+        path: `${currentPath}/{{name}}.js`,
         // templateFile: 'plop-templates/controller.hbs',
       },
     ],

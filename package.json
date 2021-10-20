@@ -1,0 +1,35 @@
+{
+  "name": "retooly",
+  "description": "Tools for react developers",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1"
+  },
+  "scripts": {
+    "lint": "eslint ./src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pawelmaczka/retooly.git"
+  },
+  "author": "Pawel Maczka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pawelmaczka/retooly/issues"
+  },
+  "homepage": "https://github.com/pawelmaczka/retooly#readme",
+  "bin": {
+    "retooly": "./src/index.js"
+  },
+  "dependencies": {
+    "minimist": "^1.2.5",
+    "plop": "^2.7.6"
+  }
+}

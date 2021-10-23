@@ -12,6 +12,7 @@
     "prettier": "^2.4.1"
   },
   "scripts": {
+    "plop": "node ./src/index.js",
     "lint": "eslint ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

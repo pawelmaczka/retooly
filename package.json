@@ -1,7 +1,7 @@
 {
   "name": "retooly",
   "description": "Tools for react developers",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "src/index.js",
   "devDependencies": {
     "@babel/cli": "^7.15.7",
@@ -31,8 +31,15 @@
   },
   "author": "Pawel Maczka",
   "license": "MIT",
-  "keywords": ["react", "tools", "wizard", "tool"],
-  "files": ["lib/**/*"],
+  "keywords": [
+    "react",
+    "tools",
+    "wizard",
+    "tool"
+  ],
+  "files": [
+    "lib/**/*"
+  ],
   "bugs": {
     "url": "https://github.com/pawelmaczka/retooly/issues"
   },

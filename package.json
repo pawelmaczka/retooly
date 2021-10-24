@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "minimist": "^1.2.5",
-    "plop": "^2.7.6"
+    "plop": "^2.7.6",
+    "shelljs": "^0.8.4"
   }
 }

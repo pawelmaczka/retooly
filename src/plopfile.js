@@ -1,4 +1,5 @@
 const fs = require('fs');
+const shell = require('shelljs');
 const setHelpers = require('./setHelpers');
 
 const CONFIG_PATH = './.retooly.json';
@@ -9,6 +10,7 @@ module.exports = function plopMain(plop) {
   setHelpers(plop);
 
   let config;
+  let packageJson;
 
   try {
     const data = fs.readFileSync(CONFIG_PATH, {
@@ -19,6 +21,18 @@ module.exports = function plopMain(plop) {
     config = JSON.parse(data);
   } catch (err) {
     console.log('Config file not found');
+  }
+
+  try {
+    const data = fs.readFileSync('./package.json', {
+      encoding: 'utf8',
+      flag: 'r',
+    });
+
+    packageJson = JSON.parse(data);
+    console.log('packageJson:', packageJson);
+  } catch (err) {
+    console.log('package.json not found');
   }
 
   plop.setGenerator('Component', {
@@ -47,6 +61,20 @@ module.exports = function plopMain(plop) {
         type: 'add',
         path: `${currentPath}/{{name}}/{{name}}.js`,
         templateFile: 'templates/component.hbs',
+      },
+      function lint(answers) {
+        if (
+          packageJson?.dependencies?.eslint ||
+          packageJson?.devDependencies?.eslint
+        ) {
+          try {
+            shell.exec(
+              `./node_modules/eslint/bin/eslint.js "${currentPath}/${answers.name}" --fix`
+            );
+          } catch (err) {
+            console.log("Couldn't lint the code");
+          }
+        }
       },
     ],
   });

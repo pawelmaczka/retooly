@@ -30,7 +30,6 @@ module.exports = function plopMain(plop) {
     });
 
     packageJson = JSON.parse(data);
-    console.log('packageJson:', packageJson);
   } catch (err) {
     console.log('package.json not found');
   }

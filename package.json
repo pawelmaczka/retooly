@@ -20,6 +20,9 @@
     "lint": "eslint ./src",
     "build": "babel src -d lib",
     "prebuild": "rimraf ./lib",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint",
+    "preversion": "npm run lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +31,8 @@
   },
   "author": "Pawel Maczka",
   "license": "MIT",
+  "keywords": ["react", "tools", "wizard", "tool"],
+  "files": ["lib/**/*"],
   "bugs": {
     "url": "https://github.com/pawelmaczka/retooly/issues"
   },

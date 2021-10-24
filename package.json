@@ -4,16 +4,22 @@
   "version": "0.0.1",
   "main": "src/index.js",
   "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "rimraf": "^3.0.2"
   },
   "scripts": {
     "plop": "node ./src/index.js",
     "lint": "eslint ./src",
+    "build": "babel src -d lib",
+    "prebuild": "rimraf ./lib",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,7 +33,7 @@
   },
   "homepage": "https://github.com/pawelmaczka/retooly#readme",
   "bin": {
-    "retooly": "./src/index.js"
+    "retooly": "./lib/index.js"
   },
   "dependencies": {
     "minimist": "^1.2.5",

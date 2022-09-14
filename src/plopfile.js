@@ -59,7 +59,9 @@ module.exports = function plopMain(plop) {
       {
         type: 'add',
         path: `${currentPath}/{{name}}/{{name}}.js`,
-        templateFile: 'templates/component.hbs',
+        templateFile: `templates/${
+          config?.projectType === 'React-Native' ? 'componentRN' : 'component'
+        }.hbs`,
       },
       function lint(answers) {
         if (
@@ -92,8 +94,40 @@ module.exports = function plopMain(plop) {
     ],
     actions: [
       function saveConfig(answers) {
+        const updatedConfig = {
+          ...(config || {}),
+          ...answers,
+        };
+
         try {
-          fs.writeFileSync(CONFIG_PATH, JSON.stringify(answers));
+          fs.writeFileSync(CONFIG_PATH, JSON.stringify(updatedConfig));
+        } catch (err) {
+          console.log("Something went wrong. Couldn't save config file: ", err);
+        }
+      },
+    ],
+  });
+
+  plop.setGenerator('Set project type (React / React-Native)', {
+    description: 'Configures project type',
+    prompts: [
+      {
+        type: 'list',
+        name: 'projectType',
+        message: 'Select project type',
+        choices: ['React', 'React-Native'],
+        default: config?.projectType ?? [],
+      },
+    ],
+    actions: [
+      function saveConfig(answers) {
+        const updatedConfig = {
+          ...(config || {}),
+          ...answers,
+        };
+
+        try {
+          fs.writeFileSync(CONFIG_PATH, JSON.stringify(updatedConfig));
         } catch (err) {
           console.log("Something went wrong. Couldn't save config file: ", err);
         }

@@ -63,11 +63,14 @@ module.exports = function plopMain(plop) {
           config?.projectType === 'React-Native' ? 'componentRN' : 'component'
         }.hbs`,
       },
-      ...(config?.projectType === 'React-Native' ? [] : [{
-        type: 'add',
-        path: `${currentPath}/{{name}}/{{name}}.module.scss`,
-        templateFile: `templates/styles.hbs`,
-      }]),
+      ...(config?.projectType === 'React-Native'
+        ? []
+        : [{
+          type: 'add',
+          path: `${currentPath}/{{name}}/{{name}}.module.scss`,
+          templateFile: `templates/styles.hbs`,
+        }]
+      ),
       function lint(answers) {
         if (
           packageJson?.dependencies?.eslint ||

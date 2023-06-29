@@ -1,7 +1,9 @@
 import React from 'react';
 {{{ imports packages }}}
+import styles from './{{name}}.module.scss';
+
 const {{name}} = () => (
-  <div>{{name}}</div>
+  <div className={styles.{{ camelCase name }}Component}>{{name}}</div>
 );
 
 export default {{name}};

@@ -58,7 +58,7 @@ module.exports = function plopMain(plop) {
       },
       {
         type: 'add',
-        path: `${currentPath}/{{name}}/{{name}}.js`,
+        path: `${currentPath}/{{name}}/{{name}}.jsx`,
         templateFile: `templates/${
           config?.projectType === 'React-Native' ? 'componentRN' : 'component'
         }.hbs`,

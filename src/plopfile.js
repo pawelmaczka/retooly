@@ -97,7 +97,7 @@ module.exports = function plopMain(plop) {
         type: 'checkbox',
         name: 'packages',
         message: 'Select packages to import',
-        choices: ['styled-components', 'prop-types'],
+        choices: ['styled-components', 'prop-types', 'classNames'],
         default: config?.packages ?? [],
       },
     ],

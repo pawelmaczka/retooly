@@ -2,8 +2,18 @@ import React from 'react';
 {{{ imports packages }}}
 import styles from './{{name}}.module.scss';
 
-const {{name}} = () => (
+const {{name}} = ({ className }) => (
+{{#if (hasPackage packages "prop-types")}}
+  <div className={classNames(styles.{{ camelCase name }}Component, className)}>{{name}}</div>
+{{else}}
   <div className={styles.{{ camelCase name }}Component}>{{name}}</div>
+{{/if}}
 );
+
+{{#if (hasPackage packages "prop-types") }}
+{{name}}.propTypes = {
+  className: PropTypes.string.isRequred
+}
+{{/if}}
 
 export default {{name}};

@@ -2,9 +2,14 @@ import React from 'react';
 {{{ imports packages }}}
 import styles from './{{name}}.module.scss';
 
-const {{name}} = ({ className }) => (
-{{#if (hasPackage packages "prop-types")}}
-  <div className={classNames(styles.{{ camelCase name }}Component, className)}>{{name}}</div>
+const {{name}} = ({ className, ...props }) => (
+{{#if (hasPackage packages "classNames")}}
+  <div
+    className={classNames(styles.{{ camelCase name }}Component, className)}
+    {...props}
+  >
+    {{name}}
+  </div>
 {{else}}
   <div className={styles.{{ camelCase name }}Component}>{{name}}</div>
 {{/if}}
@@ -12,7 +17,7 @@ const {{name}} = ({ className }) => (
 
 {{#if (hasPackage packages "prop-types") }}
 {{name}}.propTypes = {
-  className: PropTypes.string.isRequred
+  className: PropTypes.string.isRequired
 }
 {{/if}}
 

@@ -1,6 +1,9 @@
 const fs = require('fs');
 const shell = require('shelljs');
 const setHelpers = require('./setHelpers');
+const imports = require('./imports');
+
+const availablePackages = Object.keys(imports);
 
 const CONFIG_PATH = './.retooly.json';
 
@@ -46,7 +49,7 @@ module.exports = function plopMain(plop) {
         type: 'checkbox',
         name: 'packages',
         message: 'Select packages to import',
-        choices: ['styled-components', 'prop-types'],
+        choices: availablePackages,
         default: config?.packages ?? [],
       },
     ],
@@ -97,7 +100,7 @@ module.exports = function plopMain(plop) {
         type: 'checkbox',
         name: 'packages',
         message: 'Select packages to import',
-        choices: ['styled-components', 'prop-types', 'classNames'],
+        choices: availablePackages,
         default: config?.packages ?? [],
       },
     ],

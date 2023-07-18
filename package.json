@@ -1,7 +1,7 @@
 {
   "name": "retooly",
   "description": "Tools for react developers",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "main": "src/index.js",
   "devDependencies": {
     "@babel/cli": "^7.15.7",
